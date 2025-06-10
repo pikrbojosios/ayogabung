@@ -1,216 +1,140 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Registrasi PIK-R Bojo Sios</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background: linear-gradient(to bottom right, #d0ecff, #ffffff);
-    }
-    .form-page, .thankyou-page {
-      display: none;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      padding: 20px;
-    }
-    .form-page.active, .thankyou-page.active {
-      display: flex;
-      animation: fadeInScale 1.2s ease;
-    }
-    @keyframes fadeInScale {
-      from { opacity: 0; transform: scale(0.95); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - PIK-R Bojosios</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0f7fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #004d40;
+            overflow: hidden;
+        }
 
-    .container {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 8px 24px rgba(0, 123, 255, 0.2);
-      padding: 30px;
-      width: 100%;
-      max-width: 500px;
-      position: relative;
-    }
-    .logo-main {
-      display: block;
-      margin: 0 auto 20px;
-      height: 150px;
-    }
-    .logo-top {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      display: flex;
-      gap: 10px;
-    }
-    .logo-top img {
-      height: 50px;
-    }
-    h1 {
-      text-align: center;
-      color: #0056b3;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      border: 1px solid #cce5ff;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    textarea { min-height: 80px; resize: vertical; }
-    button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 20px;
-      background-color: #007bff;
-      color: white;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #0056b3;
-    }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeInContainer 2s forwards;
+        }
 
-    /* THANK YOU PAGE */
-    .thankyou-page {
-      flex-direction: column;
-      background: #001e3c;
-      color: white;
-      overflow: hidden;
-      position: relative;
-    }
-    .thankyou-text {
-      font-size: 1.5rem;
-      animation: textIn 2s ease-in-out;
-      color: #a3d8ff;
-      text-shadow: 2px 2px 5px black;
-      max-width: 700px;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    @keyframes textIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeInContainer {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
 
-    .photo-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-    .photo-grid img {
-      width: 150px;
-      height: 100px;
-      object-fit: cover;
-      border-radius: 10px;
-      animation: slideDown 1s ease forwards;
-      opacity: 0;
-    }
-    .photo-grid img:nth-child(1) { animation-delay: 0.2s; }
-    .photo-grid img:nth-child(2) { animation-delay: 0.4s; }
-    .photo-grid img:nth-child(3) { animation-delay: 0.6s; }
-    .photo-grid img:nth-child(4) { animation-delay: 0.8s; }
-    .photo-grid img:nth-child(5) { animation-delay: 1s; }
-    .photo-grid img:nth-child(6) { animation-delay: 1.2s; }
+        .logo {
+            width: 165px;
+            margin-bottom: 30px;
+            animation: rotateLogo 4s infinite linear;
+        }
 
-    @keyframes slideDown {
-      from {
-        transform: translateY(-50px);
-        opacity: 0;
-      }
-      to {
-        transform: translateY(0);
-        opacity: 1;
-      }
-    }
+        @keyframes rotateLogo {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
 
-    audio { display: none; }
-  </style>
+        h1 {
+            font-size: 2.5rem;
+            color: #00796b;
+            margin-bottom: 10px;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        p {
+            font-size: 1.2rem;
+            color: #004d40;
+            margin-bottom: 20px;
+            opacity: 0;
+            animation: fadeInText 1s 1s forwards;
+        }
+
+        @keyframes fadeInText {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .message {
+            font-size: 1.3rem;
+            color: #0288d1;
+            font-weight: bold;
+            opacity: 0;
+            animation: fadeInText 1.5s 2s forwards;
+        }
+
+        .animation {
+            font-size: 1.6rem;
+            color: #f44336;
+            animation: pulseText 1.5s infinite ease-in-out;
+        }
+
+        @keyframes pulseText {
+            0%, 100% { transform: scale(1); color: #f44336; }
+            50% { transform: scale(1.1); color: #FFEB3B; }
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #0288d1;
+            color: #fff;
+            font-size: 1.1rem;
+            text-decoration: none;
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .button:active {
+            transform: scale(1);
+        }
+
+        audio {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+    </style>
 </head>
 <body>
-
-<!-- FORM PAGE -->
-<div class="form-page active" id="formPage">
-  <div class="container">
-    <div class="logo-top">
-      <img src="https://img1.pixhost.to/images/6269/607613277_reyytourl.jpg" alt="Logo 1">
-      <img src="https://img1.pixhost.to/images/6269/607613841_reyytourl.jpg" alt="Logo 2">
+    <audio autoplay loop>
+        <source src="https://files.catbox.moe/qou0ww.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <img src="https://img1.pixhost.to/images/6391/609603905_levvihosting.jpg" alt="Logo PIK-R Bojosios" class="logo">
+        <h1>404-Not Found</h1>
+        <p>Halo Sobat Pik R Maaf Ya Registrasi Kita Tutup See You Tahun Ajaran Baru.Mau tanya tanya 0895-2583-2687.</p>
+        <p class="message">Terima kasih atas partisipasi Anda, mari kita terus berjuang bersama!</p>
+        <p class="animation">Tetap semangat, PIK-R Bojosios selalu ada untukmu!</p>
+        <a href="/" class="button">Kembali ke Beranda</a>
     </div>
-    <img src="https://img1.pixhost.to/images/6267/607584090_reyytourl.jpg" class="logo-main" alt="Logo PIK-R">
-    <h1>Registrasi PIK-R 2025</h1>
-    <form id="regForm" action="https://formspree.io/f/mvgrzkzn" method="POST">
-      <input type="text" name="Nama Lengkap" placeholder="Nama Lengkap" required>
-      <input type="text" name="Kelas" placeholder="Kelas" required>
-      <input type="tel" name="Nomor WA" placeholder="Nomor WhatsApp" required>
-      <input type="text" name="Bakat" placeholder="Bakat" required>
-      <textarea name="Alasan Masuk PIK-R" placeholder="Apa alasan kamu ingin masuk PIK-R?" required></textarea>
-      <button type="submit">Daftar Sekarang</button>
-    </form>
-  </div>
-</div>
-
-<!-- THANK YOU PAGE -->
-<div class="thankyou-page" id="thankyouPage">
-  <div class="thankyou-text">
-    <h2>Terima Kasih Telah Mendaftar!</h2>
-    <p>Selamat datang di keluarga besar <strong>PIK-R Bojo Sios</strong>! Bersama kita bisa, berkarya, dan memberi dampak positif untuk remaja Indonesia 💙
-    DI BAWAH INI KEGIATAN KITA
-    ⬇️</p>
-  </div>
-  <div class="photo-grid">
-    <img src="https://files.catbox.moe/96ovm1.jpg" alt="foto1">
-    <img src="https://files.catbox.moe/zaiidn.jpg" alt="foto2">
-    <img src="https://files.catbox.moe/p7q33o.jpg" alt="foto3">
-    <img src="https://files.catbox.moe/uwzbf1.jpg" alt="foto4">
-    <img src="https://files.catbox.moe/9uafab.jpg" alt="foto5">
-    <img src="https://files.catbox.moe/u44yh0.jpg" alt="foto6">
-  </div>
-  <audio id="bgm" autoplay loop>
-    <source src="https://files.catbox.moe/m51zus.mp3" type="audio/mpeg">
-  </audio>
-</div>
-
-<script>
-  const form = document.getElementById('regForm');
-  const formPage = document.getElementById('formPage');
-  const thankyouPage = document.getElementById('thankyouPage');
-  const bgm = document.getElementById('bgm');
-
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const data = new FormData(form);
-    const action = form.getAttribute('action');
-
-    const response = await fetch(action, {
-      method: 'POST',
-      body: data,
-      headers: { 'Accept': 'application/json' }
-    });
-
-    if (response.ok) {
-      form.reset();
-      formPage.classList.remove('active');
-      thankyouPage.classList.add('active');
-      bgm.play().catch(e => console.log('Autoplay diblokir:', e));
-    } else {
-      alert("❌ Gagal mengirim data. Silakan coba lagi.");
-    }
-  });
-</script>
-
 </body>
 </html>
