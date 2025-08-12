@@ -1,2 +1,0 @@
-# ayogabung
-pikrbojo
